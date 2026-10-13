@@ -7,5 +7,16 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
   Cross-Origin-Opener-Policy: same-origin
 
-/assets/*
+# Revalidate CSS so new markup never uses old icon styles.
+/assets/styles.css
+  Cache-Control: no-cache
+
+# Keep the week-long cache for images only; these rules must not overlap CSS.
+/assets/*.webp
+  Cache-Control: public, max-age=604800
+
+/assets/*.png
+  Cache-Control: public, max-age=604800
+
+/assets/*.jpg
   Cache-Control: public, max-age=604800

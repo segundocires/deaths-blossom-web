@@ -1,6 +1,6 @@
 /*
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'none'; img-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'none'; img-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
@@ -11,7 +11,7 @@
 /assets/styles.css
   Cache-Control: no-cache
 
-# Keep the week-long cache for images only; these rules must not overlap CSS.
+# Use separate image rules so their week-long cache never applies to CSS.
 /assets/*.webp
   Cache-Control: public, max-age=604800
 
@@ -19,4 +19,8 @@
   Cache-Control: public, max-age=604800
 
 /assets/*.jpg
+  Cache-Control: public, max-age=604800
+
+# The font filename includes its version, so it can be cached for repeat visits.
+/assets/fonts/*.woff2
   Cache-Control: public, max-age=604800

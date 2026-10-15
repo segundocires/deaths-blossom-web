@@ -1,14 +1,5 @@
 /* Layout: one 16:9 stage that fits the screen (no scroll), positions traced from the mockup.
      Portrait phones get a stacked version of the same stage. */
-  /* Pirata One by Rodrigo Fuenzalida and Nicolas Massi, licensed under SIL OFL 1.1. */
-  @font-face {
-    font-family: 'Pirata One';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('/assets/fonts/pirata-one-latin-v23.woff2') format('woff2');
-  }
-
   :root {
     color-scheme: dark;
     --ink:       #0a0708;
@@ -65,23 +56,23 @@
             mask-composite: intersect;
   }
 
-  /* Live gothic wordmark; retain the original logo's space in both layouts. */
+  /* Wordmark shares the Steam CTA's typeface and retains its space in both layouts. */
   .logo-wrap {
     --title-unit: var(--u);
     position: absolute; left: 8.95%; top: calc(4.8 * var(--u));
     width: calc(41.3 * var(--u)); aspect-ratio: 1040 / 523; margin: 0;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    font-family: 'Pirata One', Georgia, 'Times New Roman', serif;
-    font-weight: 400; font-synthesis: none; line-height: .9; text-align: center;
+    font-family: var(--roman);
+    font-weight: 400; font-synthesis: none; line-height: 1.08; text-align: center;
     filter: drop-shadow(0 2px 0 #30080d) drop-shadow(0 0 calc(.9 * var(--title-unit)) #790d20);
   }
   .logo__line {
     display: block; white-space: nowrap;
     color: #eee7df;
-    letter-spacing: -.025em;
+    letter-spacing: .015em;
   }
-  .logo__line--first { font-size: calc(8.2 * var(--title-unit)); }
-  .logo__line--second { font-size: calc(11.7 * var(--title-unit)); }
+  .logo__line--first { font-size: calc(6.8 * var(--title-unit)); }
+  .logo__line--second { font-size: calc(7.6 * var(--title-unit)); }
   @supports ((background-clip: text) or (-webkit-background-clip: text)) {
     .logo__line {
       background: linear-gradient(175deg, #fffdf5 0%, #e8e2dc 19%, #9a969d 38%, #f8f3e8 49%, #c8c0bf 62%, #fff9ea 80%, #918891 100%);
